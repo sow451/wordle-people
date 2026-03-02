@@ -19,7 +19,9 @@ st.set_page_config(
 
 # ── Load data (cached so pages share the same objects) ────────────────────────
 
-DATA_PATH = Path(__file__).parent / "data" / "whatsapp_export.txt"
+_REAL = Path(__file__).parent / "data" / "whatsapp_export.txt"
+_DEMO = Path(__file__).parent / "data" / "demo_export.txt"
+DATA_PATH = _REAL if _REAL.exists() else _DEMO
 
 
 @st.cache_data
